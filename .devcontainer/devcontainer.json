@@ -6,6 +6,7 @@
     "codespaces": {
       "openFiles": [
         "README.md",
+        "locations.csv",
         "map.py"
       ]
     },
