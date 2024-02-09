@@ -1,1 +1,1 @@
-web: sh streamlit run map.py
+web: streamlit run map.py
