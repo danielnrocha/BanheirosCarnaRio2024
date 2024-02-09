@@ -1,14 +1,7 @@
 from streamlit_folium import folium_static
 import streamlit as st
 import pandas as pd
-import webbrowser
 import folium
-
-# Load the CSV file into a DataFrame
-df = pd.read_csv("locations.csv")
-
-# Drop rows with NaN values in latitude or longitude
-df = df.dropna(subset=['Latitude', 'Longitude'])
 
 # Function to generate Google Maps link for all locations
 def generate_gmaps_link(data):
@@ -42,15 +35,27 @@ def display_map_with_pins(data):
 
 # Function to display a button to open all locations in Google Maps
 def display_open_all_button(data):
-    if st.button("Abrir no Google Maps"):
-        gmaps_link = generate_gmaps_link(data)
-        webbrowser.open(gmaps_link)
-        # st.markdown(f"[Open All Locations in Google Maps]({gmaps_link})")
+    st.link_button("Go to gallery", generate_gmaps_link(data))
+    # st.markdown(f"[Open All Locations in Google Maps]({gmaps_link})")
 
-st.title("Banheiros - Carnaval Rio 2024")
-st.markdown("Mapeamento: [Instagram Cidade Pirata](https://www.instagram.com/p/C3BoEmWJykg/?igsh=cnAxMW5wdGx5bGQw)")
-st.markdown("Desenvolvimento: [Daniel N. Rocha](https://www.linkedin.com/in/danielnrocha)")
-# Call the functions to display the options
-display_open_all_button(df)
-display_map_with_pins(df)
-display_individual_links(df)
+def main(): 
+
+    # Load the CSV file into a DataFrame
+    df = pd.read_csv("locations.csv")
+
+    # Drop rows with NaN values in latitude or longitude
+    df = df.dropna(subset=['Latitude', 'Longitude'])
+
+    st.title("Banheiros - Carnaval Rio 2024")
+    st.markdown("Mapeamento: [Instagram Cidade Pirata](https://www.instagram.com/p/C3BoEmWJykg/?igsh=cnAxMW5wdGx5bGQw)")
+    st.markdown("Desenvolvimento: [Daniel N. Rocha](https://www.linkedin.com/in/danielnrocha)")
+    
+    # Call the functions to display the options
+    display_open_all_button(df)
+    display_map_with_pins(df)
+    display_individual_links(df)
+
+if __name__ == "__main__":
+    
+    main()
+    
