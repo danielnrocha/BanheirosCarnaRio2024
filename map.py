@@ -2,6 +2,7 @@ from streamlit_folium import folium_static
 import streamlit as st
 import pandas as pd
 import folium
+import os
 
 # Function to generate Google Maps link for all locations
 def generate_gmaps_link(data):
@@ -39,6 +40,12 @@ def display_open_all_button(data):
     # st.markdown(f"[Open All Locations in Google Maps]({gmaps_link})")
 
 def main(): 
+    
+    # Use the port Heroku sets for you
+    PORT = int(os.environ.get("PORT", 8501))
+
+    # Start the app on the correct port
+    st.set_option('server.port', PORT)
 
     # Load the CSV file into a DataFrame
     df = pd.read_csv("locations.csv")
