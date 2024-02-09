@@ -36,8 +36,7 @@ def display_map_with_pins(data):
 
 # Function to display a button to open all locations in Google Maps
 def display_open_all_button(data):
-    st.link_button("Go to gallery", generate_gmaps_link(data))
-    # st.markdown(f"[Open All Locations in Google Maps]({gmaps_link})")
+    st.link_button("Abrir no Google Maps", generate_gmaps_link(data))
 
 def main(): 
     
@@ -52,7 +51,7 @@ def main():
     st.markdown("Desenvolvimento: [Daniel N. Rocha](https://www.linkedin.com/in/danielnrocha)")
     
     # Call the functions to display the options
-    display_open_all_button(df)
+    # display_open_all_button(df)
     display_map_with_pins(df)
     display_individual_links(df)
 
