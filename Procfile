@@ -1,1 +1,1 @@
-web: streamlit run map.py
+web: sh setup.sh && streamlit run map.py

@@ -41,12 +41,6 @@ def display_open_all_button(data):
 
 def main(): 
     
-    # Use the port Heroku sets for you
-    PORT = int(os.environ.get("PORT", 8501))
-
-    # Start the app on the correct port
-    st.set_option('server.port', PORT)
-
     # Load the CSV file into a DataFrame
     df = pd.read_csv("locations.csv")
 
